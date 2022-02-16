@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KeyInput : MonoBehaviour
 {
+    /*
     public Image graphic;
     public Sprite standard;
     public Sprite downgfx;
@@ -49,4 +50,5 @@ public class KeyInput : MonoBehaviour
         boolDisplay3.text = " " + held;
         
     }
+    */
 }

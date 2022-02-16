@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AxisExample : MonoBehaviour
 {
+    /*
     public float range;
     public Text texOutput;
 
@@ -17,4 +18,5 @@ public class AxisExample : MonoBehaviour
         transform.position = new Vector3(xPos, 2f, 0);
         texOutput.text = "Value Returned: " + h.ToString("F2");
     }
+    */
 }

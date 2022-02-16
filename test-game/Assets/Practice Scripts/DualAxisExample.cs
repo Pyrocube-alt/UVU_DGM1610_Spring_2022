@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DualAxisExample : MonoBehaviour
 {
+    /*
     public Text horizontalValueDisplayText;
     public Text verticalValueDisplayText;
     public float hRange;
@@ -20,4 +21,5 @@ public class DualAxisExample : MonoBehaviour
         horizontalValueDisplayText.text = h.ToString("F2");
         verticalValueDisplayText.text = v.ToString("F2");
     }
+    */
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonInput : MonoBehaviour
 {
+    /*
     public Image graphic;
     public Sprite standard;
     public Sprite downgfx;
@@ -48,4 +49,5 @@ public class ButtonInput : MonoBehaviour
         boolDisplay2.text = " " + held;
         boolDisplay3.text = " " + held;
     }
+    */
 }
