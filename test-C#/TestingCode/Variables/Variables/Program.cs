@@ -20,7 +20,7 @@
 string charName = "Amruh the Dragon";
 string charRace = "Ifrit";
 string charGender = "female";
-string charAlignment = "Chaotic Neutral";
+string charAlignment = "chaotic neutral";
 double charHeight = 5.8;
 int charWeight = 152;
 string charHairColor = "dark red";
@@ -31,13 +31,13 @@ int charAge = 27;
 // Console Interaction
 Console.WriteLine("My character in D&D is: " + charName +".");
 Console.WriteLine(charName + " is a " + charGender + " " + charRace + ".");
-Console.WriteLine("She likes to do what she wants to do no matter the consequences to others. Her allignment is " + charAlignment + ".");
+Console.WriteLine("She likes to do what she wants to do, no matter the consequences to others. Her allignment is " + charAlignment + ".");
 Console.WriteLine("Her height is " + charHeight + " and her weight is " + charWeight + ".");
-Console.WriteLine("She has a " + charHairColor + " hair color and stunning " + charEyeColor + " eyes. She also has " + charSkinColor + " skin color.");
+Console.WriteLine("She has a " + charHairColor + " hair color and stunning " + charEyeColor + " eyes. She also has a " + charSkinColor + " skin color.");
 Console.WriteLine("She's the ripe age of " + charAge + ".");
 Console.WriteLine(charRace + "'s can live past the age of 108! They aren't considered adults until 60 so " + charName + " is considered to be very young for an " + charRace + ".");
 
-//Console readers interactions
+//Console reader interactions
 Console.WriteLine("What is your character's name?");
 Console.WriteLine("Character Name:");
 string yourCharName = Console.ReadLine();
