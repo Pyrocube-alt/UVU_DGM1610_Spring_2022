@@ -8,14 +8,17 @@ public class PlayerController : MonoBehaviour
  
     private float horizontalInput = 5;
     private float verticalInput = 5;
-
     private float sideBound = 8;
     private float topBound = 4;
+
+    private BoxCollider2D boxCollider;
+    private Rigidbody2D playerRb;
     
 
     void Start()
     {
-        
+        boxCollider = GetComponent<BoxCollider2D>();
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
     
@@ -49,4 +52,5 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
     }
+
 }
