@@ -16,7 +16,7 @@ public class GameManagerX : MonoBehaviour
     public List<GameObject> targetPrefabs;
 
     private int score;
-    private float time = Mathf.RoundToInt(60.0f);
+    private float time = 60.0f;
     private float spawnRate = 1.5f;
     public bool isGameActive;
 
@@ -77,16 +77,20 @@ public class GameManagerX : MonoBehaviour
 
     public void Update()
     {
-
-        time -= Time.deltaTime;
-
-        if (time < 0)
+    
+        if (isGameActive)
         {
-            GameOver();
-        }
+            time -= Time.deltaTime;
 
-        timeText.text = "Time: " + time;
+            if (time < 0)
+            {
+                GameOver();
+            }
+
+            timeText.text = "Time: " + Mathf.RoundToInt(time);
+        }
         
+          
     }
 
     // Stop game, bring up game over text and restart button
