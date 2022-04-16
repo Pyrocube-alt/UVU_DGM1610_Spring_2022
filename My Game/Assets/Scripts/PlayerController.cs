@@ -13,16 +13,25 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private Rigidbody2D playerRb;
+    //private Rigidbody2D enemyRb;
+
+    //public GameObject enemy;
     
 
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         playerRb = GetComponent<Rigidbody2D>();
+        //enemyRb = GetComponent<Rigidbody2D>();
     }
 
     
     void Update()
+    {
+        MovePlayer();
+    }
+
+    void MovePlayer()
     {
         //keep player in bounds on x axis
         if(transform.position.x >= sideBound)
@@ -51,6 +60,15 @@ public class PlayerController : MonoBehaviour
         //moves player up and down
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
+
     }
+
+    // private void OnCollisionEnter2D(Collision2D other) 
+    // {
+    //     if (enemy)
+    //     {
+    //         Destroy(other.gameObject);
+    //     }    
+    // }
 
 }
