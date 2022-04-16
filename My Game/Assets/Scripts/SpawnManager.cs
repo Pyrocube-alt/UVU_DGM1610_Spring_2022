@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
 
     public int waveNumber = 1;
 
-    private float spawnRange = 12;
+    private float spawnRange = 20;
 
     void Start()
     {

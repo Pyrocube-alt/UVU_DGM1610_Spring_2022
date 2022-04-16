@@ -10,16 +10,25 @@ public class EnemyScript : MonoBehaviour
     public GameObject[] cropArray;
     public GameObject enemyExit;
     private Rigidbody2D enemyRb;
+    private SpriteRenderer enemySprite;
 
     private void Start() 
     {
         enemyRb = GetComponent<Rigidbody2D>(); 
+        enemySprite = GetComponent<SpriteRenderer>();
         cropArray = GameObject.FindGameObjectsWithTag("Crop");   
         enemyExit = GameObject.FindGameObjectWithTag("Exit");
     }
 
     private void Update()
     {
+        MoveEnemy();
+    }
+
+    void MoveEnemy()
+    {
+        Vector3 oldPos = transform.position;
+
         //moves enemy toward closest crop unless enemy is full, then leave 
         if (isFull == false)
         {
@@ -27,10 +36,19 @@ public class EnemyScript : MonoBehaviour
         }
         else if (isFull == true)
         {
-            transform.position = Vector2.Lerp(transform.position, enemyExit.transform.position, Time.deltaTime * speed);
+            transform.position = Vector2.Lerp(transform.position, enemyExit.transform.position, Time.deltaTime * speed);  
         }
-        
+        //flips sprite based on direction
+        if(oldPos.x - transform.position.x < 0)
+        {
+            enemySprite.flipX = true;
+        }
+        else
+        {
+            enemySprite.flipX = false;
+        } 
     }
+
 
     private GameObject FindClosestCrop()
     {
@@ -61,7 +79,6 @@ public class EnemyScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-        }
-           
+        }   
     }
 }

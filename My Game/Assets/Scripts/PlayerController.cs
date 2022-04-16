@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
+    public bool isGameOver = false;
  
     private float horizontalInput = 5;
     private float verticalInput = 5;
@@ -13,22 +14,19 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private Rigidbody2D playerRb;
-    //private Rigidbody2D enemyRb;
-
-    //public GameObject enemy;
     
 
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         playerRb = GetComponent<Rigidbody2D>();
-        //enemyRb = GetComponent<Rigidbody2D>();
     }
 
     
     void Update()
     {
         MovePlayer();
+        GameOver();
     }
 
     void MovePlayer()
@@ -63,12 +61,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // private void OnCollisionEnter2D(Collision2D other) 
-    // {
-    //     if (enemy)
-    //     {
-    //         Destroy(other.gameObject);
-    //     }    
-    // }
-
+    void GameOver()
+    {
+        if(GameObject.FindGameObjectWithTag("Crop") == null)
+        {
+            isGameOver = true;
+        }
+    }
 }
