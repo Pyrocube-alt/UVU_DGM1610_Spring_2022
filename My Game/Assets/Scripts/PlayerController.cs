@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private Rigidbody2D playerRb;
-    
 
     void Start()
     {
@@ -51,13 +50,17 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -topBound, 0);
         }
 
-        //moves player left and right
+        if(isGameOver == false)
+        {
+            //moves player left and right
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
 
         //moves player up and down
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
+        }
+        
 
     }
 

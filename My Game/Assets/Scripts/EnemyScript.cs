@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject enemyExit;
     private Rigidbody2D enemyRb;
     private SpriteRenderer enemySprite;
+    
 
     private void Start() 
     {

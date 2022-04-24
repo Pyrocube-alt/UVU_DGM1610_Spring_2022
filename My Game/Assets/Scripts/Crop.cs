@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Crop : MonoBehaviour
 {
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();    
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         EnemyScript enemyScript = other.GetComponent<EnemyScript>();
@@ -12,6 +18,7 @@ public class Crop : MonoBehaviour
         {
             Destroy(gameObject);  
             enemyScript.isFull = true;
+            gameManager.UpdateScore(1);
         }
     }
 }
