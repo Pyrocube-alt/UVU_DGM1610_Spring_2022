@@ -5,6 +5,12 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject bloodSplatterPrefab;
+    private GameObject player;
+    private Vector3 playerOffset = new Vector3 (0, -0.56f, 0);
+
+
+    
     //public GameObject powerupPrefab;
 
     public int waveNumber = 1;
@@ -13,6 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player");
         SpawnEnemyWave(waveNumber);
         //SpawnPowerup(); 
     }
@@ -49,5 +56,13 @@ public class SpawnManager : MonoBehaviour
         Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
 
         return randomPos;
+    }
+
+    public void BloodSplatter()
+    {
+        
+        transform.position = player.transform.position + playerOffset;
+
+        Instantiate(bloodSplatterPrefab, transform.position, bloodSplatterPrefab.transform.rotation);
     }
 }

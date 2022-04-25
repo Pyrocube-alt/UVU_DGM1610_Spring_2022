@@ -7,8 +7,12 @@ public class EnemyScript : MonoBehaviour
     public float speed = 1;
     public bool isFull = false;
 
+
     public GameObject[] cropArray;
     public GameObject enemyExit;
+
+    private GameManager gameManager;
+    private SpawnManager spawnManager;
     private Rigidbody2D enemyRb;
     private SpriteRenderer enemySprite;
     
@@ -17,8 +21,11 @@ public class EnemyScript : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody2D>(); 
         enemySprite = GetComponent<SpriteRenderer>();
+        
         cropArray = GameObject.FindGameObjectsWithTag("Crop");   
         enemyExit = GameObject.FindGameObjectWithTag("Exit");
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     private void Update()
@@ -80,6 +87,8 @@ public class EnemyScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
+            gameManager.UpdateKill(1);
+            spawnManager.BloodSplatter();
         }   
-    }
+    }  
 }

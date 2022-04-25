@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI cropLeftOverText;
+    public TextMeshProUGUI killedText;
     public Button restartButton;
     private PlayerController playerScript;
 
     private int score;
+    private int kill;
     
     
 
@@ -20,8 +22,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        score = 9;
-        cropLeftOverText.text = "CROPS LEFT: " + score;   
+
+        score = 9;   
+        UpdateKill(0);
         UpdateScore(0);
     }
 
@@ -51,4 +54,9 @@ public class GameManager : MonoBehaviour
         cropLeftOverText.text = "CROPS LEFT: " + score;
     }
 
+    public void UpdateKill(int killToAdd)
+    {
+        kill += killToAdd;
+        killedText.text = kill.ToString();
+    }
 }
