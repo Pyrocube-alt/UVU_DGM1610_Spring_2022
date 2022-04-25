@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385088925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.31, y: 0.18, z: 0}
   m_LocalScale: {x: 62.99395, y: 60.851936, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1541,6 +1541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6175317380550001317, guid: 762e03c80df21054d92be8d500820b13, type: 3}
   bloodSplatterPrefab: {fileID: 2189232959627742602, guid: f25a9bb5467e4e244a2db04d46369373, type: 3}
+  randomInt: 
   waveNumber: 1
 --- !u!4 &1205999718
 Transform:
@@ -1550,7 +1551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205999716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -0.5449221, z: -6.866439}
+  m_LocalPosition: {x: -3.23, y: -0.5449221, z: -6.866439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
