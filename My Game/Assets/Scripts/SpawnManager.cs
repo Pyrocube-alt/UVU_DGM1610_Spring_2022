@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject bloodSplatterPrefab;
     private GameObject player;
     private Vector3 playerOffset = new Vector3 (0, -0.56f, 0);
-  
+
     //public GameObject powerupPrefab;
 
     public int waveNumber = 1;
@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnEnemyWave(int enemiesToSpawn)
     {
         for(int i = 0; i < enemiesToSpawn; i++)
-        {
+        {   
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
     }
@@ -47,14 +47,13 @@ public class SpawnManager : MonoBehaviour
     //     Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
     // }
 
-    private Vector3 GenerateSpawnPosition()
+    public Vector3 GenerateSpawnPosition()
     {   
-      
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
         float spawnPosY = Random.Range(-spawnRange, spawnRange);
 
         Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
-
+        
         return randomPos;
     }
 
@@ -66,16 +65,8 @@ public class SpawnManager : MonoBehaviour
         Instantiate(bloodSplatterPrefab, transform.position, bloodSplatterPrefab.transform.rotation);
     }
 
-    // int RandomSign(int number)
+    // public void SpawnOutOfScene()
     // {
-    //     if (Random.Range(0,100) > 50) 
-    //     {
-    //         return number;
-    //     }
-    //     else
-    //     {
-    //         return -number;
-    //     }
-        
+       
     // }
 }

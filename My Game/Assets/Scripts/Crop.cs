@@ -8,12 +8,13 @@ public class Crop : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();    
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); 
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         EnemyScript enemyScript = other.GetComponent<EnemyScript>();
-
+        
         if(other.tag == "Enemy" && enemyScript.isFull == false)
         {
             Destroy(gameObject);  
@@ -21,4 +22,6 @@ public class Crop : MonoBehaviour
             gameManager.UpdateScore(1);
         }
     }
+
+    
 }

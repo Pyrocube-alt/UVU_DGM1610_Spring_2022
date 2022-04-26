@@ -9,8 +9,9 @@ public class EnemyScript : MonoBehaviour
 
 
     public GameObject[] cropArray;
-    public GameObject enemyExit;
-
+    private GameObject enemyExit;
+    public AudioClip crunchSound;
+    private AudioSource enemyAudio;
     private GameManager gameManager;
     private SpawnManager spawnManager;
     private Rigidbody2D enemyRb;
@@ -21,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody2D>(); 
         enemySprite = GetComponent<SpriteRenderer>();
+        enemyAudio = GetComponent<AudioSource>();
         
         cropArray = GameObject.FindGameObjectsWithTag("Crop");   
         enemyExit = GameObject.FindGameObjectWithTag("Exit");
@@ -51,13 +53,14 @@ public class EnemyScript : MonoBehaviour
         {
             enemySprite.flipX = true;
         }
-        else
+        else 
         {
             enemySprite.flipX = false;
         } 
     }
 
 
+    //returns closest crop to enemy 
     private GameObject FindClosestCrop()
     {
         GameObject cropMin = null; //current closest crop
@@ -65,7 +68,7 @@ public class EnemyScript : MonoBehaviour
 
         foreach(GameObject crop in cropArray)
         {
-            if(crop != null & isFull == false) //if crop is active and isFull is false
+            if(crop != null & isFull == false) //if crop is active and isFull is false, then find closest crop
             {
                 float dist = Vector3.Distance(crop.transform.position, transform.position);
                 if (dist < minDist)
@@ -78,11 +81,16 @@ public class EnemyScript : MonoBehaviour
         return cropMin;
     }
 
+    //if enemy colliders with player or exit, destroy enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Exit"))
         {
             Destroy(gameObject); 
+        }
+        if (other.CompareTag("Crop") && !isFull)
+        {
+            enemyAudio.PlayOneShot(crunchSound, 0.5f);
         }
         if (other.CompareTag("Player"))
         {
@@ -90,5 +98,8 @@ public class EnemyScript : MonoBehaviour
             gameManager.UpdateKill(1);
             spawnManager.BloodSplatter();
         }   
-    }  
+        
+    } 
+
+    
 }

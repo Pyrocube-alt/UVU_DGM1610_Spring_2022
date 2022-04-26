@@ -12,13 +12,16 @@ public class PlayerController : MonoBehaviour
     private float sideBound = 8;
     private float topBound = 4;
 
+    public AudioClip squishSound;
     private BoxCollider2D boxCollider;
     private Rigidbody2D playerRb;
+    private AudioSource playerAudio;
 
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         playerRb = GetComponent<Rigidbody2D>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     
@@ -70,5 +73,13 @@ public class PlayerController : MonoBehaviour
         {
             isGameOver = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            playerAudio.PlayOneShot(squishSound, 0.5f);
+        }    
     }
 }
